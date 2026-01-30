@@ -1,0 +1,573 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- SEÇÃO 1: HERO E MARCA --- */
+.scroll-wrapper {
+    height: 200vh;
+    position: relative;
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('imagem/hero1.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.content-box {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.proposta {
+    font-weight: 100;
+    font-size: clamp(60px, 12vw, 203px);
+    line-height: 0.9;
+}
+
+.comercial {
+    font-weight: 800;
+    font-size: clamp(50px, 10vw, 167px);
+    line-height: 0.9;
+}
+
+.tracado-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2vh;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.tracado-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.luz-animada {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255,255,255,0) 30%, 
+        rgba(255,255,255,0.5) 50%, 
+        rgba(255,255,255,0) 70%, 
+        transparent 100%
+    );
+    animation: brilho 3s infinite linear;
+}
+
+@keyframes brilho {
+    0% { left: -50%; }
+    100% { left: 150%; }
+}
+
+/* MARCA (LOGO CENTRAL QUE ENCOLHE) */
+.brand-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    z-index: 15;
+    pointer-events: none;
+}
+
+#mainBrand {
+    width: clamp(200px, 50vw, 400px);
+    height: auto;
+}
+
+/* --- FAIXA DOURADA SIMPLES --- */
+.divisoria-faixa-dourada {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #BDA34C 25%, 
+        #FEFB95 50%, 
+        #BDA34C 75%, 
+        transparent 100%
+    );
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.divisoria-faixa-dourada::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.8) 50%, 
+        transparent 100%
+    );
+    animation: scan-faixa 3s ease-in-out infinite;
+}
+
+@keyframes scan-faixa {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* --- SEÇÃO 2: QUEM SOMOS --- */
+.second-section {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    position: relative;
+    z-index: 5;
+}
+
+.quem-somos-container {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 40px;
+    width: 100%;
+    align-items: center;
+    text-align: left;
+}
+
+.text-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.titulo-quem-somos {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(40px, 6vw, 99.87px);
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    filter: blur(20px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: filter 1.2s ease, opacity 1.2s ease, transform 1.2s ease;
+}
+
+.descricao-quem-somos {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(18px, 2.5vw, 32px);
+    line-height: 1.3;
+    color: #FFFFFF;
+    max-width: 850px;
+    filter: blur(20px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: filter 1.2s ease 0.3s, opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+}
+
+.reveal-text {
+    filter: blur(0px) !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.descricao-quem-somos span {
+    font-weight: 800;
+}
+
+.tracado-wrapper-sec2 {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.tracado-wrapper-sec2 .tracado-svg {
+    width: 100%;
+    display: block;
+}
+
+.arrow-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-arrow {
+    width: clamp(60px, 10vw, 120px);
+    animation: bounceArrow 2s infinite ease-in-out;
+}
+
+@keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(30px); opacity: 0.4; }
+}
+
+/* --- SEÇÃO 3: VANTAGENS --- */
+.third-section {
+    width: 100%;
+    background-color: #000;
+    padding: 60px 10%;
+    position: relative;
+    overflow: hidden;
+}
+
+.vantagens-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    width: 100%;
+    align-items: center;
+}
+
+.titulo-vantagens {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(30px, 4vw, 71.27px);
+    line-height: 1.1;
+    margin-bottom: 35px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.titulo-vantagens span { font-weight: 800; }
+
+.plus-sign {
+    background: linear-gradient(180deg, #FEFB95 0%, #BDA34C 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    margin-right: 12px;
+}
+
+.item-vantagem {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 2vw, 41.07px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 25px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    width: fit-content;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+}
+
+.video-side { 
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.vantagens-video {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- SEÇÃO 4: PROCESSO --- */
+.section-quatro-processo {
+    position: relative;
+    height: 400vh;
+    background-color: #000;
+}
+
+.fundo-pontos-estatico {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('imagem/points.svg');
+    background-repeat: repeat;
+    background-size: 35px;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.processo-card {
+    position: absolute;
+    width: 90%;
+    max-width: 650px;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: filter 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+.icon-box svg {
+    width: 70px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+}
+
+.titulo-processo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.texto-processo {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.processo-card.blurred {
+    filter: blur(15px);
+    opacity: 0;
+    transform: translateY(-50px) scale(0.95);
+}
+
+/* --- SEÇÃO VALORES (DESIGN FIEL AO FIGMA) --- */
+.section-valores-fiel {
+    background-color: #000;
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+.container-valores {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-sessao {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 5vw, 49px);
+    line-height: 1.1;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* Retângulo conforme Figma: 7% opacidade + borda 1px branca + border-radius 58px */
+.card-background {
+    width: 100%;
+    background: rgba(217, 217, 217, 0.07);
+    border: 1px solid white;
+    border-radius: 58px;
+    padding: 60px 50px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.card-content {
+    text-align: left;
+}
+
+/* Pesos e tamanhos baseados no Figma */
+.txt-600 { font-weight: 600; font-size: clamp(24px, 4vw, 38.4px); }
+.txt-400-sub { font-weight: 400; font-size: clamp(20px, 3.5vw, 31px); }
+
+.servico-header {
+    margin-bottom: 40px;
+    line-height: 1.3;
+}
+
+.plus-gold {
+    color: #E3BA45;
+    font-weight: 600;
+    margin-right: 10px;
+    font-size: clamp(24px, 4vw, 38.4px);
+}
+
+.servico-lista p {
+    margin-bottom: 25px;
+    line-height: 1.2;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Bloco do Preço - Posicionamento relativo fiel */
+.preco-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.preco-principal-row {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 45px; /* Espaço para o R$ à esquerda */
+}
+
+.moeda-gold {
+    color: #E3BA45;
+    font-weight: 600;
+    font-size: 28px;
+    position: absolute;
+    left: 0;
+    top: 15px; /* Alinhamento conforme Figma */
+}
+
+.numero-grande {
+    font-weight: 600;
+    font-size: clamp(60px, 8vw, 85px); /* Tamanho de impacto */
+    line-height: 0.9;
+}
+
+.col-centavos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+.centavos-gold {
+    color: #E3BA45;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.mes-tag {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+.contrato-texto {
+    font-weight: 400;
+    font-size: clamp(18px, 3vw, 26px);
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+/* Ajustes Mobile */
+@media (max-width: 600px) {
+    .card-background {
+        padding: 40px 25px;
+        border-radius: 40px;
+    }
+    .titulo-sessao { font-size: 28px; }
+    .numero-grande { font-size: 58px; }
+    .moeda-gold { font-size: 22px; top: 10px; }
+    .plus-gold { font-size: 28px; }
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .quem-somos-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .second-section {
+        padding: 60px 5%;
+    }
+
+    .content-box {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .third-section {
+        padding: 40px 5% 50px 5%;
+    }
+
+    .vantagens-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .titulo-vantagens {
+        font-size: 32px;
+        text-align: left;
+    }
+
+    .item-vantagem {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .video-side {
+        width: 100%;
+        justify-content: center;
+        order: 2;
+    }
+
+    .divisoria-faixa-dourada {
+        height: 3px;
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .preco-principal, .preco {
+        font-size: 18px;
+    }
+    
+    .divisoria-faixa-dourada {
+        height: 2px;
+        margin: 10px 0;
+    }
+}
